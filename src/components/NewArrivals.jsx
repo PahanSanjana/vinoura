@@ -35,26 +35,8 @@ const NewArrivals = () => {
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Elegant Background with Subtle Texture */}
-      <div className="absolute inset-0 bg-gradient-to-b from-off-white via-off-white to-charcoal-soft/10">
-        {/* Subtle Diagonal Texture */}
-        <div 
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: `
-              repeating-linear-gradient(
-                135deg,
-                transparent,
-                transparent 2px,
-                rgba(26, 26, 26, 0.08) 2px,
-                rgba(26, 26, 26, 0.08) 4px
-              )
-            `
-          }}
-        />
-        {/* Soft Shadow Accents */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-warm-gray/20 to-transparent" />
-      </div>
+      {/* Clean Background */}
+      <div className="absolute inset-0 bg-off-white" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div

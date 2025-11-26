@@ -1,36 +1,9 @@
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import founderImage from '../assets/Vinuli.jpg';
 
 const AboutPage = () => {
-  const timelineEvents = [
-    {
-      year: '2015',
-      title: 'The Beginning',
-      description: 'VINOURA was founded with a vision to redefine luxury fashion, combining timeless elegance with contemporary innovation.',
-    },
-    {
-      year: '2017',
-      title: 'First Collection',
-      description: 'Our debut collection "Ethereal Elegance" premiered at Paris Fashion Week, establishing our signature aesthetic.',
-    },
-    {
-      year: '2019',
-      title: 'Global Expansion',
-      description: 'Opened flagship boutiques in Paris, New York, and London, bringing VINOURA to fashion capitals worldwide.',
-    },
-    {
-      year: '2022',
-      title: 'Runway Excellence',
-      description: 'Received international acclaim for our couture collections, featured in Vogue, Harper\'s Bazaar, and Elle.',
-    },
-    {
-      year: '2024',
-      title: 'Sustainable Future',
-      description: 'Launched our sustainable luxury initiative, committing to ethical craftsmanship and environmental responsibility.',
-    },
-  ];
-
   const values = [
     {
       title: 'Elegance',
@@ -50,17 +23,8 @@ const AboutPage = () => {
     },
   ];
 
-  const galleryImages = [
-    'https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=800&q=80',
-    'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&q=80',
-    'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80',
-    'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80',
-    'https://images.unsplash.com/photo-1566479179817-4d448f9b5037?w=800&q=80',
-    'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&q=80',
-  ];
-
   return (
-    <div className="min-h-screen bg-ivory-50">
+    <div className="min-h-screen bg-off-white">
       <Header />
 
       {/* Main Content */}
@@ -69,47 +33,135 @@ const AboutPage = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 sm:mb-20 px-4 sm:px-6 lg:px-8"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20 px-4 sm:px-6 lg:px-8"
         >
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal-900 mb-6">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-sans text-xs uppercase tracking-[0.3em] text-charcoal-dark mb-4 block"
+          >
+            Our Story
+          </motion.span>
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-matte-black mb-6 tracking-tight">
             The House of Vinoura
           </h1>
-          <div className="w-24 h-px bg-gold-500 mx-auto mb-6" />
-          <p className="font-sans text-lg sm:text-xl text-charcoal-600 max-w-2xl mx-auto">
+          <div className="w-20 h-px bg-rose-gold mx-auto mb-6" />
+          <p className="font-sans text-base sm:text-lg md:text-xl text-charcoal-dark/80 max-w-2xl mx-auto leading-relaxed">
             Where elegance becomes identity
           </p>
         </motion.div>
 
-        {/* Brand Introduction Section */}
-        <section className="mb-24 sm:mb-32 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Founder Section */}
+        <section className="mb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute inset-0 bg-off-white" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Founder Image */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden rounded-sm shadow-lg"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-charcoal-soft rounded-sm group"
               >
-                <img
+                <motion.img
+                  src={founderImage}
+                  alt="Vinuli Kalubowila - Founder & Fashion Designer"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-matte-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
+
+              {/* Founder Content */}
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="space-y-8"
+              >
+                <div>
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="font-sans text-xs uppercase tracking-[0.3em] text-charcoal-dark mb-4 block"
+                  >
+                    Founder & Creative Vision
+                  </motion.span>
+                  <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl text-matte-black mb-6">
+                    Vinuli Kalubowila
+                  </h2>
+                  <div className="w-20 h-px bg-rose-gold mb-10" />
+                </div>
+
+                <div className="space-y-6 text-charcoal-dark/80 font-sans text-base sm:text-lg leading-relaxed">
+                  <p>
+                    As the creative force behind VINOURA, I am passionate about crafting modern, luxurious designs that celebrate individuality, art, and culture. Each piece I create blends creativity with confidence, telling a story that resonates with those who wear it. My collections embrace diversity, self-expression, and timeless elegance, inviting everyone to define their own style and narrative.
+                  </p>
+                  <p>
+                    Fashion, for me, is more than clothing—it's a way to communicate, inspire, and transform imagination into wearable art. Using tools like Adobe Illustrator, fashion illustration, and portfolio design, I turn ideas into visual stories and stylish concepts. I'm constantly exploring, learning, and evolving as a designer, driven by creativity, innovation, and a love for modern aesthetics.
+                  </p>
+                  <p className="text-charcoal-dark font-medium">
+                    Join me on this journey where fashion meets artistry, and let your wardrobe speak volumes about who you are.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Brand Introduction Section */}
+        <section className="mb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute inset-0 bg-off-white" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-charcoal-soft rounded-sm group"
+              >
+                <motion.img
                   src="https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=1200&q=80"
                   alt="VINOURA Brand"
                   className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-matte-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-6"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="space-y-8"
               >
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 mb-4">
-                  A Legacy of Luxury
-                </h2>
-                <div className="w-16 h-px bg-gold-500 mb-6" />
-                <div className="space-y-4 font-sans text-lg text-charcoal-700 leading-relaxed">
+                <div>
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="font-sans text-xs uppercase tracking-[0.3em] text-charcoal-dark mb-4 block"
+                  >
+                    Our Philosophy
+                  </motion.span>
+                  <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl text-matte-black mb-6">
+                    A Legacy of Luxury
+                  </h2>
+                  <div className="w-20 h-px bg-rose-gold mb-10" />
+                </div>
+                <div className="space-y-6 text-charcoal-dark/80 font-sans text-base sm:text-lg leading-relaxed">
                   <p>
                     VINOURA stands for more than fashion—it represents a philosophy of refined
                     elegance, exceptional craftsmanship, and timeless beauty. We believe that true
@@ -122,7 +174,7 @@ const AboutPage = () => {
                     tells a story, each piece is a work of art, and every garment is created with
                     the intention of becoming a cherished part of your wardrobe.
                   </p>
-                  <p>
+                  <p className="text-charcoal-dark font-medium">
                     Our vision extends beyond creating beautiful clothing. We aim to inspire
                     confidence, celebrate individuality, and honor the art of dressing well. In a
                     world of fast fashion, VINOURA stands as a testament to slow, thoughtful
@@ -134,105 +186,51 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Brand Story Timeline */}
-        <section className="mb-24 sm:mb-32 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal-900 mb-4">
-                Our Journey
-              </h2>
-              <div className="w-20 h-px bg-gold-500 mx-auto" />
-            </motion.div>
-
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-beige-300" />
-
-              <div className="space-y-12 md:space-y-16">
-                {timelineEvents.map((event, index) => (
-                  <motion.div
-                    key={event.year}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className={`flex flex-col md:flex-row items-center ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } gap-8`}
-                  >
-                    {/* Year Badge */}
-                    <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-                      <div
-                        className={`text-center md:text-right ${
-                          index % 2 === 0 ? 'md:text-right' : 'md:text-left md:order-2'
-                        }`}
-                      >
-                        <div className="inline-block relative">
-                          <div className="hidden md:block absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-gold-500 rounded-full border-4 border-ivory-50 z-10 left-1/2 -translate-x-1/2" />
-                          <h3 className="font-serif text-5xl sm:text-6xl text-gold-600 mb-2">
-                            {event.year}
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Content Card */}
-                    <div
-                      className={`w-full md:w-1/2 ${
-                        index % 2 === 0 ? 'md:pl-8' : 'md:pr-8 md:order-1'
-                      }`}
-                    >
-                      <div className="bg-white p-8 rounded-sm shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <h4 className="font-serif text-2xl sm:text-3xl text-charcoal-900 mb-3">
-                          {event.title}
-                        </h4>
-                        <p className="font-sans text-charcoal-700 leading-relaxed">
-                          {event.description}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Craftsmanship & Philosophy Section */}
-        <section className="mb-24 sm:mb-32 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <section className="mb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute inset-0 bg-off-white" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative h-[400px] sm:h-[500px] overflow-hidden rounded-sm shadow-lg"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-charcoal-soft rounded-sm group"
               >
-                <img
+                <motion.img
                   src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
                   alt="Couture Craftsmanship"
                   className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-matte-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-6"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="space-y-8"
               >
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 mb-4">
-                  Craftsmanship & Philosophy
-                </h2>
-                <div className="w-16 h-px bg-gold-500 mb-6" />
-                <div className="space-y-4 font-sans text-lg text-charcoal-700 leading-relaxed">
+                <div>
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="font-sans text-xs uppercase tracking-[0.3em] text-charcoal-dark mb-4 block"
+                  >
+                    Our Commitment
+                  </motion.span>
+                  <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl text-matte-black mb-6">
+                    Craftsmanship & Philosophy
+                  </h2>
+                  <div className="w-20 h-px bg-rose-gold mb-10" />
+                </div>
+                <div className="space-y-6 text-charcoal-dark/80 font-sans text-base sm:text-lg leading-relaxed">
                   <p>
                     At the heart of VINOURA lies an unwavering commitment to exceptional
                     craftsmanship. Each garment is meticulously created by skilled artisans who have
@@ -260,22 +258,33 @@ const AboutPage = () => {
         </section>
 
         {/* Values Section */}
-        <section className="mb-24 sm:mb-32 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <section className="mb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          <div className="absolute inset-0 bg-off-white" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center mb-20"
             >
-              <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal-900 mb-4">
+              <motion.span
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="font-sans text-xs uppercase tracking-[0.3em] text-charcoal-dark mb-4 block"
+              >
+                Our Foundation
+              </motion.span>
+              <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl text-matte-black mb-4">
                 Our Values
               </h2>
-              <div className="w-20 h-px bg-gold-500 mx-auto mb-6" />
-              <p className="font-sans text-lg text-charcoal-600 max-w-2xl mx-auto">
+              <p className="font-sans text-base text-charcoal-dark/80 max-w-2xl mx-auto mb-6">
                 The principles that guide everything we create
               </p>
+              <div className="w-20 h-px bg-rose-gold mx-auto" />
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -284,15 +293,15 @@ const AboutPage = () => {
                   key={value.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-sm shadow-md hover:shadow-xl transition-shadow duration-300"
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="bg-off-white p-8 rounded-sm border border-charcoal-soft/20 hover:border-rose-gold/30 transition-all duration-300"
                 >
-                  <h3 className="font-serif text-2xl sm:text-3xl text-charcoal-900 mb-4">
+                  <h3 className="font-serif text-2xl sm:text-3xl text-matte-black mb-4">
                     {value.title}
                   </h3>
-                  <div className="w-12 h-px bg-gold-500 mb-4" />
-                  <p className="font-sans text-charcoal-700 leading-relaxed">
+                  <div className="w-12 h-px bg-rose-gold mb-4" />
+                  <p className="font-sans text-charcoal-dark/80 leading-relaxed">
                     {value.description}
                   </p>
                 </motion.div>
@@ -301,102 +310,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Designer's Note Section */}
-        <section className="mb-24 sm:mb-32 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-12"
-            >
-              <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal-900 mb-4">
-                A Note from the Designer
-              </h2>
-              <div className="w-20 h-px bg-gold-500 mx-auto" />
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white p-8 sm:p-12 rounded-sm shadow-lg"
-            >
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-full md:w-48 shrink-0">
-                  <div className="relative aspect-square overflow-hidden rounded-sm shadow-md">
-                    <img
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80"
-                      alt="Designer"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-serif text-2xl sm:text-3xl text-charcoal-900 mb-4">
-                    Creative Director
-                  </h3>
-                  <div className="w-12 h-px bg-gold-500 mb-6" />
-                  <div className="space-y-4 font-sans text-lg text-charcoal-700 leading-relaxed">
-                    <p>
-                      "Fashion, to me, is about creating moments of transformation. When a woman
-                      puts on a VINOURA piece, I want her to feel not just beautiful, but powerful,
-                      confident, and authentically herself. Every collection we create is a love
-                      letter to the art of dressing—an invitation to express your unique elegance."
-                    </p>
-                    <p>
-                      "We live in a time where everything moves quickly, but at VINOURA, we choose
-                      to slow down. We choose to honor the process, to celebrate the craft, and to
-                      create pieces that will become part of your story. This is not just fashion;
-                      this is wearable art, designed to last."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Aesthetic Image Gallery */}
-        <section className="mb-24 sm:mb-32 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal-900 mb-4">
-                The VINOURA Aesthetic
-              </h2>
-              <div className="w-20 h-px bg-gold-500 mx-auto" />
-            </motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-              {galleryImages.map((image, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative overflow-hidden rounded-sm shadow-md hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="aspect-[4/5]">
-                    <img
-                      src={image}
-                      alt={`VINOURA aesthetic ${index + 1}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />

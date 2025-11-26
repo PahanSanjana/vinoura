@@ -122,7 +122,7 @@ const CollectionsPage = () => {
   const displayCollections = filteredCollections || collections;
 
   return (
-    <div className="min-h-screen bg-ivory-50">
+    <div className="min-h-screen bg-off-white">
       <Header />
       
       {/* Main Content */}
@@ -132,14 +132,22 @@ const CollectionsPage = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 sm:mb-20"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-20"
           >
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal-900 mb-6">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="font-sans text-xs uppercase tracking-[0.3em] text-charcoal-dark mb-4 block"
+            >
+              Haute Couture
+            </motion.span>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-matte-black mb-6 tracking-tight">
               Our Collections
             </h1>
-            <div className="w-24 h-px bg-gold-500 mx-auto mb-6" />
-            <p className="font-sans text-lg sm:text-xl text-charcoal-600 max-w-2xl mx-auto">
+            <div className="w-20 h-px bg-rose-gold mx-auto mb-6" />
+            <p className="font-sans text-base sm:text-lg md:text-xl text-charcoal-dark/80 max-w-2xl mx-auto leading-relaxed">
               Explore the essence of haute couture
             </p>
           </motion.div>
@@ -151,8 +159,8 @@ const CollectionsPage = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
           >
             {displayCollections.length > 0 ? (
               displayCollections.map((collection, index) => (
@@ -164,7 +172,7 @@ const CollectionsPage = () => {
               ))
             ) : (
               <div className="col-span-full text-center py-16">
-                <p className="font-sans text-charcoal-600 text-lg">
+                <p className="font-sans text-charcoal-dark/80 text-lg">
                   No collections match the selected filters.
                 </p>
               </div>

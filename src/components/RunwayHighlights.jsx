@@ -52,26 +52,8 @@ const RunwayHighlights = () => {
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-matte-black overflow-hidden relative">
-      {/* Elegant Background Texture */}
-      <div className="absolute inset-0">
-        {/* Subtle Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(250, 249, 247, 0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(250, 249, 247, 0.05) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
-        {/* Elegant Border Accents */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/25 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/20 to-transparent" />
-        {/* Soft Corner Accents */}
-        <div className="absolute top-0 left-0 w-32 h-32 border-t border-l border-rose-gold/10" />
-        <div className="absolute bottom-0 right-0 w-32 h-32 border-b border-r border-rose-gold/10" />
-      </div>
+      {/* Clean Background */}
+      <div className="absolute inset-0 bg-matte-black" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div

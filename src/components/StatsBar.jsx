@@ -11,18 +11,6 @@ const StatsBar = () => {
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-matte-black relative overflow-hidden">
-      {/* Subtle Background Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(250, 249, 247, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(250, 249, 247, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }}
-      />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div

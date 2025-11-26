@@ -31,23 +31,23 @@ const FilterBar = ({ onFilterChange }) => {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="mb-12 pb-8 border-b border-beige-200"
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="mb-16 pb-10 border-b border-charcoal-soft/20"
     >
       <div className="flex flex-wrap items-center gap-4 sm:gap-6">
         {Object.entries(filters).map(([category, options]) => (
           <div key={category} className="flex flex-wrap items-center gap-2">
-            <span className="font-sans text-xs uppercase tracking-widest text-charcoal-600 mr-2">
+            <span className="font-sans text-xs uppercase tracking-[0.2em] text-charcoal-dark mr-2 font-medium">
               {category}:
             </span>
             {options.map((option) => (
               <button
                 key={option}
                 onClick={() => handleFilterClick(category, option)}
-                className={`font-sans text-xs uppercase tracking-wider px-4 py-2 transition-all duration-300 ${
+                className={`font-sans text-xs uppercase tracking-[0.2em] px-4 py-2 transition-all duration-300 ${
                   activeFilters[category] === option
-                    ? 'bg-charcoal-900 text-ivory-50'
-                    : 'bg-beige-100 text-charcoal-700 hover:bg-beige-200'
+                    ? 'bg-matte-black text-off-white border border-matte-black'
+                    : 'bg-off-white text-charcoal-dark border border-charcoal-soft/30 hover:border-rose-gold/50 hover:text-rose-gold'
                 }`}
               >
                 {option}

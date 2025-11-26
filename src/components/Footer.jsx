@@ -1,126 +1,168 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Instagram, Facebook, Twitter } from 'lucide-react';
+import logo from '../assets/Logo1.png';
 
 const Footer = () => {
   const socialLinks = [
-    { name: 'Instagram', icon: '📷' },
-    { name: 'Facebook', icon: '📘' },
-    { name: 'Twitter', icon: '🐦' },
-    { name: 'Pinterest', icon: '📌' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/vinoura_official/?utm_source=ig_web_button_share_sheet' },
+    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/vinoura' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/vinoura' },
+
   ];
 
   return (
-    <footer className="relative bg-matte-black text-off-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Polished Background with Texture */}
+    <footer className="relative bg-matte-black text-off-white py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Clean Background */}
       <div className="absolute inset-0">
-        {/* Subtle Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(250, 249, 247, 0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(250, 249, 247, 0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }}
-        />
-        {/* Elegant Top Border */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/30 to-transparent" />
-        {/* Soft Corner Accents */}
-        <div className="absolute top-0 left-0 w-24 h-24 border-t border-l border-rose-gold/15" />
-        <div className="absolute top-0 right-0 w-24 h-24 border-t border-r border-rose-gold/15" />
+        {/* Subtle Top Border */}
+        <div className="absolute top-0 left-0 w-full h-px bg-rose-gold/30" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20 mb-16">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="lg:col-span-1"
           >
-            <h3 className="font-serif text-3xl mb-4 tracking-wider">VINOURA</h3>
-            <p className="font-sans text-sm text-off-white/70 leading-relaxed">
+            <Link to="/" className="inline-block mb-4 group">
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="flex items-center gap-3"
+              >
+                <img
+                  src={logo}
+                  alt="VINOURA"
+                  className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                />
+                <span className="font-serif text-xl lg:text-2xl tracking-wider text-off-white group-hover:text-rose-gold transition-colors duration-300">
+                  VINOURA
+                </span>
+              </motion.div>
+            </Link>
+            <p className="font-sans text-sm text-off-white/70 leading-relaxed mb-6 max-w-xs">
               Uncommon Fashion for Extraordinary Lives
             </p>
+            <div className="w-16 h-px bg-rose-gold/50" />
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Collections */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-sans text-xs uppercase tracking-[0.2em] mb-6 text-off-white/90">Quick Links</h4>
-            <ul className="space-y-3 font-sans text-sm text-off-white/70">
-              <li><a href="#" className="hover:text-rose-gold transition-colors duration-300">Collections</a></li>
-              <li><a href="#" className="hover:text-rose-gold transition-colors duration-300">About</a></li>
-              <li><a href="#" className="hover:text-rose-gold transition-colors duration-300">Contact</a></li>
-              <li><a href="#" className="hover:text-rose-gold transition-colors duration-300">Privacy</a></li>
+            <h4 className="font-sans text-xs uppercase tracking-[0.2em] mb-6 text-off-white font-medium">Collections</h4>
+            <ul className="space-y-3.5 font-sans text-sm text-off-white/70">
+              <li>
+                <Link to="/collections" className="hover:text-rose-gold transition-colors duration-300 inline-block">
+                  All Collections
+                </Link>
+              </li>
+              <li>
+                <Link to="/runway" className="hover:text-rose-gold transition-colors duration-300 inline-block">
+                  Runway
+                </Link>
+              </li>
             </ul>
           </motion.div>
 
-          {/* Newsletter */}
+          {/* Company */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-sans text-xs uppercase tracking-[0.2em] mb-6 text-off-white/90">Newsletter</h4>
-            <p className="font-sans text-sm text-off-white/70 mb-6">
-              Subscribe to receive updates on new collections
+            <h4 className="font-sans text-xs uppercase tracking-[0.2em] mb-6 text-off-white font-medium">Company</h4>
+            <ul className="space-y-3.5 font-sans text-sm text-off-white/70">
+              <li>
+                <Link to="/about" className="hover:text-rose-gold transition-colors duration-300 inline-block">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-rose-gold transition-colors duration-300 inline-block">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="hover:text-rose-gold transition-colors duration-300 inline-block">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-rose-gold transition-colors duration-300 inline-block">
+                  Terms of Service
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Connect */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h4 className="font-sans text-xs uppercase tracking-[0.2em] mb-6 text-off-white font-medium">Connect</h4>
+            <p className="font-sans text-sm text-off-white/70 mb-6 leading-relaxed max-w-xs">
+              Follow us for the latest updates and exclusive content.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-3 bg-charcoal-dark/50 border border-charcoal-dark text-off-white placeholder-off-white/50 focus:outline-none focus:border-rose-gold transition-colors font-sans text-sm"
-              />
-              <button
-                type="submit"
-                className="px-8 py-3 bg-rose-gold text-matte-black font-sans text-xs uppercase tracking-wider hover:bg-gold-500 transition-colors font-semibold"
-              >
-                Subscribe
-              </button>
-            </form>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="p-2.5 border border-off-white/30 hover:border-rose-gold hover:bg-rose-gold/10 hover:text-rose-gold transition-all duration-300"
+                  >
+                    <IconComponent className="w-4 h-4" />
+                  </motion.a>
+                );
+              })}
+            </div>
           </motion.div>
         </div>
 
-        {/* Social Icons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex justify-center gap-8 mb-12"
-        >
-          {socialLinks.map((social, index) => (
-            <motion.a
-              key={social.name}
-              href="#"
-              aria-label={social.name}
-              whileHover={{ scale: 1.2, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-2xl hover:text-rose-gold transition-colors duration-300"
-            >
-              {social.icon}
-            </motion.a>
-          ))}
-        </motion.div>
+        {/* Divider */}
+        <div className="border-t border-off-white/15 mb-10 pt-10" />
 
-        {/* Copyright */}
+        {/* Copyright & Legal */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center border-t border-charcoal-dark pt-8"
+          className="flex flex-col md:flex-row justify-between items-center gap-4"
         >
-          <p className="font-sans text-xs text-off-white/60">
+          <p className="font-sans text-xs text-off-white/60 tracking-wide">
             © {new Date().getFullYear()} VINOURA. All rights reserved.
           </p>
+          <div className="flex gap-6 font-sans text-xs text-off-white/60">
+            <a href="#" className="hover:text-rose-gold transition-colors duration-300">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-rose-gold transition-colors duration-300">
+              Terms
+            </a>
+            <a href="#" className="hover:text-rose-gold transition-colors duration-300">
+              Cookies
+            </a>
+          </div>
         </motion.div>
       </div>
     </footer>

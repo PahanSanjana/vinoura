@@ -31,27 +31,8 @@ const BrandStory = () => {
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Elegant Layered Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal-soft/35 via-charcoal-soft/25 to-off-white">
-        {/* Subtle Texture Overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 35px,
-                rgba(26, 26, 26, 0.1) 35px,
-                rgba(26, 26, 26, 0.1) 70px
-              )
-            `
-          }}
-        />
-        {/* Soft Accent Lines */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/15 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-warm-gray/10 to-transparent" />
-      </div>
+      {/* Clean Background */}
+      <div className="absolute inset-0 bg-off-white" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div

@@ -1,24 +1,12 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const FeaturedCouture = () => {
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Refined Background with Soft Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-off-white via-off-white to-charcoal-soft/15">
-        {/* Subtle Texture Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.012]"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 1px 1px, rgba(26, 26, 26, 0.15) 1px, transparent 0)
-            `,
-            backgroundSize: '40px 40px'
-          }}
-        />
-        {/* Elegant Accent Line */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-warm-gray/15 to-transparent" />
-      </div>
+      {/* Clean Background */}
+      <div className="absolute inset-0 bg-off-white" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
@@ -86,10 +74,12 @@ const FeaturedCouture = () => {
               whileTap={{ scale: 0.98 }}
               className="pt-4"
             >
-              <button className="px-10 py-4 bg-matte-black text-off-white font-sans text-xs tracking-[0.2em] uppercase font-semibold hover:bg-charcoal-dark transition-all duration-300 shadow-lg shadow-matte-black/20 flex items-center gap-3 group">
-                Discover Couture
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <Link to="/collections">
+                <button className="px-10 py-4 bg-matte-black text-off-white font-sans text-xs tracking-[0.2em] uppercase font-semibold hover:bg-charcoal-dark transition-all duration-300 shadow-lg shadow-matte-black/20 flex items-center gap-3 group">
+                  Discover Couture
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
