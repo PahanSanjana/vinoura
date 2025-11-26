@@ -20,8 +20,8 @@ const Header = () => {
     { name: 'Collections', href: '/collections' },
     { name: 'Runway', href: '/runway' },
     { name: 'Boutique', href: '/boutique' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const iconLinks = [
