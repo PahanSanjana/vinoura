@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,8 +16,8 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Collections', href: '#collections' },
+    { name: 'Home', href: '/' },
+    { name: 'Collections', href: '/collections' },
     { name: 'Runway', href: '#runway' },
     { name: 'Boutique', href: '#boutique' },
     { name: 'About', href: '#about' },
@@ -43,14 +44,18 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Brand Name - Centered */}
         <div className="flex items-center justify-center py-6 border-b border-beige-200/50">
-          <motion.a
-            href="#"
-            className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 tracking-wider"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
+          <Link
+            to="/"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 tracking-wider block"
           >
-            VINOURA
-          </motion.a>
+            <motion.span
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+              className="inline-block"
+            >
+              VINOURA
+            </motion.span>
+          </Link>
         </div>
 
         {/* Navigation Bar */}
@@ -81,20 +86,36 @@ const Header = () => {
           {/* Desktop Navigation Links - Centered */}
           <div className="hidden lg:flex items-center justify-center space-x-8 flex-1">
             {navLinks.map((link, index) => (
-              <motion.a
+              <motion.div
                 key={link.name}
-                href={link.href}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
-                className="relative font-sans text-sm uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition-colors duration-300 group px-2"
               >
-                {link.name}
-                <motion.span
-                  className="absolute bottom-0 left-0 w-0 h-px bg-charcoal-900 group-hover:w-full transition-all duration-300"
-                  initial={false}
-                />
-              </motion.a>
+                {link.href.startsWith('/') ? (
+                  <Link
+                    to={link.href}
+                    className="relative font-sans text-sm uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition-colors duration-300 group px-2"
+                  >
+                    {link.name}
+                    <motion.span
+                      className="absolute bottom-0 left-0 w-0 h-px bg-charcoal-900 group-hover:w-full transition-all duration-300"
+                      initial={false}
+                    />
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    className="relative font-sans text-sm uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition-colors duration-300 group px-2"
+                  >
+                    {link.name}
+                    <motion.span
+                      className="absolute bottom-0 left-0 w-0 h-px bg-charcoal-900 group-hover:w-full transition-all duration-300"
+                      initial={false}
+                    />
+                  </a>
+                )}
+              </motion.div>
             ))}
           </div>
 
@@ -132,17 +153,30 @@ const Header = () => {
           className="lg:hidden overflow-hidden"
         >
           <div className="py-4 space-y-4 border-t border-beige-200/50">
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block font-sans text-sm uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition-colors duration-300 py-2"
-                whileHover={{ x: 4 }}
-              >
-                {link.name}
-              </motion.a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block font-sans text-sm uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition-colors duration-300 py-2"
+                >
+                  <motion.span whileHover={{ x: 4 }} className="inline-block">
+                    {link.name}
+                  </motion.span>
+                </Link>
+              ) : (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block font-sans text-sm uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition-colors duration-300 py-2"
+                  whileHover={{ x: 4 }}
+                >
+                  {link.name}
+                </motion.a>
+              )
+            )}
           </div>
         </motion.div>
       </div>
