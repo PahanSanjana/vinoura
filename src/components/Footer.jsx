@@ -150,8 +150,17 @@ const Footer = () => {
           className="flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="font-sans text-xs text-off-white/60 tracking-wide">
-            © {new Date().getFullYear()} VINOURA. All rights reserved.
-          </p>
+  © 2025{' '}
+  <a 
+    href="https://sanziq.netlify.app/" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="underline hover:text-white"
+  >
+    SANZIQ Software Solutions
+  </a>
+  . All rights reserved.
+</p>
           <div className="flex gap-6 font-sans text-xs text-off-white/60">
             <a href="#" className="hover:text-rose-gold transition-colors duration-300">
               Privacy
