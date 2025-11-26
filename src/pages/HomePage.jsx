@@ -1,3 +1,4 @@
+import Header from '../components/Header';
 import Hero from '../components/Hero';
 import NewArrivals from '../components/NewArrivals';
 import RunwayHighlights from '../components/RunwayHighlights';
@@ -8,6 +9,7 @@ import Footer from '../components/Footer';
 const HomePage = () => {
   return (
     <div className="min-h-screen">
+      <Header />
       <Hero />
       <NewArrivals />
       <RunwayHighlights />
