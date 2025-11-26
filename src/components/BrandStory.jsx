@@ -30,29 +30,60 @@ const BrandStory = () => {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-ivory-100">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Elegant Layered Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal-soft/35 via-charcoal-soft/25 to-off-white">
+        {/* Subtle Texture Overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 35px,
+                rgba(26, 26, 26, 0.1) 35px,
+                rgba(26, 26, 26, 0.1) 70px
+              )
+            `
+          }}
+        />
+        {/* Soft Accent Lines */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-warm-gray/10 to-transparent" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
         >
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal-900 mb-6">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-sans text-xs uppercase tracking-[0.3em] text-charcoal-dark mb-4 block"
+          >
+            Our Heritage
+          </motion.span>
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl text-matte-black mb-6">
             The House of Vinoura
           </h2>
-          <div className="w-24 h-px bg-gold-500 mx-auto mb-8" />
+          <div className="w-20 h-px bg-rose-gold mx-auto mb-10" />
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl mx-auto text-center mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mx-auto text-center mb-20"
         >
-          <p className="font-sans text-lg sm:text-xl text-charcoal-700 leading-relaxed">
+          <p className="font-sans text-lg sm:text-xl text-charcoal-dark leading-relaxed">
             Founded on the principle that fashion should be both extraordinary and personal, 
             VINOURA represents a new era of luxury. We believe in creating pieces that transcend 
             trends, garments that become part of your story, and collections that honor both 
@@ -64,22 +95,23 @@ const BrandStory = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10"
         >
           {images.map((image, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="relative aspect-[4/5] overflow-hidden bg-beige-200"
+              className="relative aspect-[4/5] overflow-hidden bg-charcoal-soft rounded-sm group"
             >
               <motion.img
                 src={image}
                 alt={`Brand story ${index + 1}`}
                 className="w-full h-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-matte-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
           ))}
         </motion.div>
